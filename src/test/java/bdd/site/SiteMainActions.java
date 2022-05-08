@@ -3,7 +3,7 @@ package bdd.site;
 import bdd.stepdefs.Hooks;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class MainActions {
+public class SiteMainActions {
 
     private static ChromeDriver getDriver() {
         return Hooks.chromeDriver;

@@ -1,5 +1,6 @@
 package bdd.stepdefs;
 
+import bdd.pages.AndroidPageObject;
 import io.cucumber.java.Before;
 import io.appium.java_client.android.*;
 import org.openqa.selenium.WebElement;
@@ -20,16 +21,18 @@ public class Hooks {
         cap.setCapability("deviceName", "Emulator2");
         cap.setCapability("udid", "emulator-5554");
         cap.setCapability("platformName", "Android");
-        cap.setCapability("appPackage", "com.sample.ExpoShop");
-        cap.setCapability("appActivity", "host.exp.exponent.MainActivity");
+        cap.setCapability("appPackage", "com.example.timetablemuiv");
+        cap.setCapability("appActivity", "MainActivity");
 
         androidDriver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), cap);
-        androidDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        androidDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+        AndroidPageObject androidPageObject = new AndroidPageObject(androidDriver);
     }
 
     @Before(value = "@Site")
     public void createChromedDriver() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         chromeDriver = new ChromeDriver();
         chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         chromeDriver.manage().window().maximize();
