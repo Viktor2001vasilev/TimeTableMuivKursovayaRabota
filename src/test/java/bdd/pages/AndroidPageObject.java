@@ -29,6 +29,12 @@ public class AndroidPageObject {
     @AndroidFindBy(id = "com.example.timetablemuiv:id/textView2")
     private static WebElement classesScheduleText;
 
+    @AndroidFindBy(id = "com.example.timetablemuiv:id/currentDay")
+    private static WebElement currentDayText;
+
+    @AndroidFindBy(id = "com.example.timetablemuiv:id/listview2")
+    private static WebElement currentDaySchedule;
+
     @AndroidFindBy(id = "com.example.timetablemuiv:id/current")
     private static WebElement currentButton;
 
@@ -46,6 +52,9 @@ public class AndroidPageObject {
 
     @AndroidFindBy(xpath = "//android.widget.ImageButton[@content-desc=\"Open navigation drawer\"]")
     private static WebElement openNavigationButton;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/androidx.drawerlayout.widget.DrawerLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+    private static WebElement muivText;
 
     @AndroidFindBy(xpath = "//android.widesc=\"Open navigation drawer\"]")
     private static WebElement notExistElement;
@@ -81,17 +90,35 @@ public class AndroidPageObject {
 
     @AndroidFindBy(id = "com.example.timetablemuiv:id/button2")
     private static WebElement nextButton;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.LinearLayout/android.view.ViewGroup[1]/android.widget.TextView")
+    private static WebElement muivTextInAuthMenu;
     //----------------------------------------------------------------------------------------------------------------------------------------
 
     //Settings-------------------------------------------------------------------------------------------------------------------------------
     @AndroidFindBy(id = "android:id/text1")
     private static WebElement groupSelect;
 
+    @AndroidFindBy(id = "android:id/alertTitle")
+    private static WebElement selectItemText;
+
+    @AndroidFindBy(id = "android:id/search_src_text")
+    private static WebElement groupSelectInput;
+
+    @AndroidFindBy(id = "android:id/search_mag_icon")
+    private static WebElement searchIcon;
+
+    @AndroidFindBy(id = "com.example.timetablemuiv:id/listItems")
+    private static WebElement groupListHolder;
+
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.TextView")
     private static List<WebElement> groupsList;
 
     @AndroidFindBy(id = "android:id/button1")
     private static WebElement closeGroupSelectButton;
+
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView")
+    private static WebElement muivTextInGroupSelectMenu;
     //----------------------------------------------------------------------------------------------------------------------------------------
 
     //Common Elements-------------------------------------------------------------------------------------------------------------------------------
@@ -102,12 +129,15 @@ public class AndroidPageObject {
     //Elements getters------------------------------------------------------------------------------------------------------------------------
     public static WebElement getElement(String elementName) {
         if(elementName.equals("Текст Расписание Занятий")) return classesScheduleText;
+        if(elementName.equals("Текст Текущий день")) return currentDayText;
+        if(elementName.equals("Расписание на текущий день")) return currentDaySchedule;
         if(elementName.equals("Кнопка Текущее")) return currentButton;
         if(elementName.equals("Кнопка На неделю")) return forWeekButton;
         if(elementName.equals("Изображение на галвной странице")) return mainImage;
         if(elementName.equals("Кнопка Настройки")) return settingsButton;
         if(elementName.equals("Кнопка Авторизации")) return authorizationButton;
         if(elementName.equals("Кнопка Раскрыть меню")) return openNavigationButton;
+        if(elementName.equals("Текст МУИВ в главном меню")) return muivText;
         if(elementName.equals("Изображение бокового меню")) return navigationBarImage;
         if(elementName.equals("Кнопка Главная в боковом меню")) return navigationBarMainButton;
         if(elementName.equals("Кнопка Посетить наш сайт в боковом меню")) return navigationBarVisitSiteButton;
@@ -117,9 +147,15 @@ public class AndroidPageObject {
         if(elementName.equals("Инпут для пароля")) return passwordInput;
         if(elementName.equals("Кнопка Проверка")) return checkButton;
         if(elementName.equals("Кнопка Далее")) return nextButton;
+        if(elementName.equals("Текст МУИВ в меню авторизации")) return muivTextInAuthMenu;
         if(elementName.equals("Несуществующий элемент")) return notExistElement;
-        if(elementName.equals("Выбор группы")) return groupSelect;
+        if(elementName.equals("Кнопка Выбор группы")) return groupSelect;
         if(elementName.equals("Кнопка Закрыть выбор группы")) return closeGroupSelectButton;
+        if(elementName.equals("Текст МУИВ в меню выбора группы")) return muivTextInGroupSelectMenu;
+        if(elementName.equals("Текст Select Item")) return selectItemText;
+        if(elementName.equals("Инпут для группы")) return groupSelectInput;
+        if(elementName.equals("Иконка для поиска")) return searchIcon;
+        if(elementName.equals("Список групп")) return groupListHolder;
         if(elementName.equals("Кнопка Назад")) return returnButton;
         else return null;
     }
