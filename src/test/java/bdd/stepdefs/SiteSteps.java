@@ -1,12 +1,15 @@
 package bdd.stepdefs;
 
+import bdd.site.SiteMainActions;
 import io.cucumber.java.bg.И;
+import io.qameta.allure.Step;
 
 public class SiteSteps {
 
-    @И("^вывести в консоль сайта \"([^\"]*)\"$")
-    public static void printNumber(String num) {
-        System.out.println(num);
-    }
+//    @Step("")
+//    @И("^получить название текущей вкладки"$")
+//    public static void printNumber() {
+//        System.out.println(SiteMainActions.getDriver().Title);
+//    }
 
 }

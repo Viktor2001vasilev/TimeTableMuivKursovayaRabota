@@ -7,9 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"pretty"},
+        tags = "@testTag1", //Вписать индивидуальный тег, теги для тестов, которые необходимо протестировать отдельно с генерацией отчета
         features = "classpath:features/",
         glue = "bdd.stepdefs"
 )
 
-public class CucumberRunnerTest {
+public class CucumberRunnerTest{
 }
